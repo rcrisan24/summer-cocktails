@@ -21,10 +21,11 @@ services:
   mongo:
     container_name: mongo
     image: mongo
+    volumes: 
+      - mongodata:/data/db
+    restart: unless-stopped
     ports:
       - "27017:27017"
 
-
-networks:
-  default:
-      name: shared-network
+volumes:
+  mongodata:
