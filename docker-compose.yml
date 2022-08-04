@@ -1,0 +1,25 @@
+version: "2"
+services:
+  backend:
+    container_name: summer_cocktails_backend
+    restart: always
+    build: ./summer_cocktails_backend
+    ports:
+      - "4000:4000"
+    links:
+      - mongo
+
+  front-end:
+    container_name: summer_cocktails_front_end
+    restart: always
+    build: ./summer_cocktails_front_end
+    ports:
+      - "5000:5000"
+    links:
+      - backend
+      
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - "27017:27017"
