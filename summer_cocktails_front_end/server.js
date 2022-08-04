@@ -24,8 +24,6 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 app.post('/add_cocktail', function(req, res) {
 
-    console.log (req)
-
     var name = req.body.name
     var price = req.body.price;
     var body = {name: name, price: price}
@@ -33,7 +31,7 @@ app.post('/add_cocktail', function(req, res) {
     console.log("New coktail data " + name + " " + price)
 
     var method = req.method.toUpperCase();
-    var proxy_url = 'http://localhost:4000/api/cocktails';
+    var proxy_url = 'http://backend:4000/api/cocktails';
   
     var options = {
           headers: {"Connection": "close"},
@@ -48,6 +46,8 @@ app.post('/add_cocktail', function(req, res) {
             console.log('----- interface data ------', data);
   
             res.json(data)
+        } else {
+          console.log(error)
         }
     }
   
