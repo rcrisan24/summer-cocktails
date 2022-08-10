@@ -12,7 +12,8 @@ router.get("/cocktails", async(req, res) => {
 router.post("/cocktails", async(req, res) => {
     const cocktail = new Cocktail({
         name: req.body.name,
-        price: req.body.price
+        price: req.body.price,
+        ingredients: req.body.ingredients
     })
 
     await cocktail.save()
