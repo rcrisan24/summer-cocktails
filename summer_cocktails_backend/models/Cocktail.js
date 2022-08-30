@@ -6,7 +6,13 @@ const Schema = mongoose.Schema;
 let cocktail = new Schema(
     {
         name : String,
-        price: Number
+        price: Number,
+        ingredients: [
+            {
+                name: String,
+                quantity: String
+            }
+        ]
     }
 )
 

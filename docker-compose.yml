@@ -27,5 +27,14 @@ services:
     ports:
       - "27017:27017"
 
+  holidays:
+    container_name: holidays
+    restart: always
+    build: ./holidays
+    ports:
+      - "7000:7000"
+    links:
+      - mongo
+
 volumes:
   mongodata:
